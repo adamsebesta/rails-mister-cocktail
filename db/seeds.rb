@@ -6,19 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Ingredient.destroy_all
-Cocktail.destroy_all
 
 Ingredient.create(name: "lemon")
 Ingredient.create(name: "ice")
 Ingredient.create(name: "mint leaves")
-
-require 'faker'
-20.times do
-  Cocktail.create(
-    name: Faker::Space.star,
-    image_url:  Faker::LoremFlickr.image(size: "180x180", search_terms: ['drinks'])
-  )
-end
+Ingredient.create(name: "vodka")
+Ingredient.create(name: "rum")
+Ingredient.create(name: "aperol")
+Ingredient.create(name: "sugar")
+Ingredient.create(name: "honey")
+Ingredient.create(name: "bitters")
 
 10.times do
   Ingredient.create(name: Faker::Food.spice)
