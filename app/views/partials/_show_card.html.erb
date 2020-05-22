@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-around">
   <div class="ml-5 w-50">
     <h3><%= @cocktail.name %></h3>
-    <img src="<%= @cocktail.image_url %>" alt="">
+    <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
   </div>
   <div class="mr-5 w-50">
     <ul class="list-group">

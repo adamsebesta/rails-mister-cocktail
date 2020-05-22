@@ -8,7 +8,7 @@
             <div class="">
               <%= simple_form_for @cocktail do |f| %>
               <%= f.input :name %>
-              <%= f.input :image_url %>
+              <%= f.input :photo, as: :file %>
               <%= f.submit "create cocktail", class: "btn btn-primary" %>
               <% end %>
             </div>
