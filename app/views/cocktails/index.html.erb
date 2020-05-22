@@ -1,18 +1,35 @@
-<div class="navbar navbar-light bg-light">
-  <%= link_to "add a new cocktail", new_cocktail_path,  :class => " btn btn-primary ml-5 mt-1"  %>
-</div>
-<div class="container mt-5">
-  <div class="banner">
-    <h1 class= "text-center">Cocktails</h1>
-  </div>
-  <div class="d-flex justify-content-center m-1">
-  <div class= "row justify-content-center">
-      <% @cocktails.each do |cocktail|  %>
-    <div class=" card text-center p-5 m-3 bg-light w-80 rounded font-weight-bold">
-      <img src="" alt="">
-      <%= link_to cocktail.name, cocktail_path(cocktail) %>
+<div class="navbar navbar-light bg-light fixed-top">
+  <%= link_to "<i class='fas fa-cocktail'></i> +".html_safe, new_cocktail_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary btn-lg'}  %>
+  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="container m-5">
+          <div class="d-flex justify-content-center">
+            <div class="">
+              <%= simple_form_for @cocktail do |f| %>
+              <%= f.input :name %>
+              <%= f.input :image_url %>
+              <%= f.submit "create cocktail", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <% end %>
   </div>
+  <h3 class="ml-4 mb-0 align-left"> typing..</h3>
+</div>
+</div>
+<br>
+<br>
+<div class="banner-main" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1508253730651-e5ace80a7025?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
+  Cocktails
+</div>
+<div id="index-main">
+  <div class="container main-page pt-5">
+    <div class="d-flex justify-content-center m-1">
+      <%= render "/partials/card.html.erb" %>
+    </div>
   </div>
 </div>
+<%= render "/partials/footer" %>

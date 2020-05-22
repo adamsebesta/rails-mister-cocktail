@@ -1,40 +1,23 @@
 <div class="container mt-5">
   <div class="text-center p-5 m-3 bg-light w-60 rounded font-weight-bold">
-    <div class="d-flex justify-content-around">
-      <div class="ml-5 w-50">
-        <h3><%= @cocktail.name %></h3>
-      </div>
-      <div class="mr-5 w-50">
-        <ul class="list-group">
-          <h3>Ingredients</h3>
-          <% @cocktail.doses.each do |dose| %>
-            <li>
-              <%=dose.description %> - <%= dose.ingredient.name %>
-              <%= link_to "del",
-                  dose_path(dose),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
-            </li>
-          <% end %>
-      </ul>
-      </div>
-    </div>
+    <%= render "/partials/show_card.html.erb" %>
     <br>
     <br>
-    <%= link_to "back to list", cocktails_path, :class => "btn btn-primary" %>
-    <%= link_to "edit", edit_cocktail_path, :class => "btn btn-warning"  %>
+    <%= link_to "back to list", root_path, :class => "btn btn-primary" %>
     <%= link_to "delete",
-            cocktail_path(@cocktail),
-            method: :delete,
-            data: { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
+    cocktail_path(@cocktail),
+    method: :delete,
+    data: { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
   </div>
-    <div class="d-flex justify-content-center w-100">
-     <div class="w-50">
-      <%= simple_form_for [ @cocktail, @dose ] do |f| %>
-        <%= f.input :description %>
-        <%= f.association :ingredient %>
-        <%= f.submit "Submit ingredient", class: "btn btn-primary" %>
-      <% end %>
-      </div>
-    </div>
+  <div class="d-flex justify-content-center w-100">
+   <div class="w-50">
+    <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <%= f.submit "Submit ingredient", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
+</div>
+
+<%= cl_image_tag "source", alt: "alttext" %>

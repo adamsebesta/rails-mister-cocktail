@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-around">
+  <div class="ml-5 w-50">
+    <h3><%= @cocktail.name %></h3>
+    <img src="<%= @cocktail.image_url %>" alt="">
+  </div>
+  <div class="mr-5 w-50">
+    <ul class="list-group">
+      <h3>Ingredients</h3>
+      <% @cocktail.doses.each do |dose| %>
+      <li class= "list-group-item">
+        <%=dose.description %> - <%= dose.ingredient.name %>
+        <%= link_to "<i class='fas fa-trash'></i>".html_safe,
+        dose_path(dose),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

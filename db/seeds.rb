@@ -14,7 +14,10 @@ Ingredient.create(name: "mint leaves")
 
 require 'faker'
 20.times do
-  Cocktail.create(name: Faker::Space.star)
+  Cocktail.create(
+    name: Faker::Space.star,
+    image_url:  Faker::LoremFlickr.image(size: "180x180", search_terms: ['drinks'])
+  )
 end
 
 10.times do
