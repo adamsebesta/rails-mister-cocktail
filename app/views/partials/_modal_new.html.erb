@@ -1,0 +1,19 @@
+    <%= link_to "<i class='fas fa-cocktail'></i> +".html_safe, cocktails_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary btn-lg ml-5 mt-4'}  %>
+  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="container m-3">
+            <h5 class="">new cocktail :</h5>
+          <div class="d-flex justify-content-center my-3">
+            <div class="">
+              <%= simple_form_for @cocktail do |f| %>
+              <%= f.input :name %>
+              <%= f.input :image_url %>
+              <%= f.submit "create cocktail", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

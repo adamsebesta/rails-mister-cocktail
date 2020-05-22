@@ -16,12 +16,18 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
+    @cocktails = Cocktail.all
 
     if @cocktail.save
       redirect_to @cocktail, notice: 'Cocktail was successfully created.'
     else
-      render :new
+      render :index
     end
+  end
+
+  def destroy
+    @cocktail.destroy
+    redirect_to root_path
   end
 
   def edit

@@ -1,23 +1,7 @@
 <div class="navbar navbar-light bg-light fixed-top">
-  <%= link_to "<i class='fas fa-cocktail'></i> +".html_safe, new_cocktail_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary btn-lg'}  %>
-  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="container m-5">
-          <div class="d-flex justify-content-center">
-            <div class="">
-              <%= simple_form_for @cocktail do |f| %>
-              <%= f.input :name %>
-              <%= f.input :image_url %>
-              <%= f.submit "create cocktail", class: "btn btn-primary" %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div>
+    <span id="banner-typed-text"></span>
   </div>
-  <h3 class="ml-4 mb-0 align-left"> typing..</h3>
 </div>
 </div>
 <br>
@@ -26,10 +10,12 @@
   Cocktails
 </div>
 <div id="index-main">
-  <div class="container main-page pt-5">
+  <%= render "/partials/modal_new" %>
+  <div class="container main-page pt-2">
     <div class="d-flex justify-content-center m-1">
       <%= render "/partials/card.html.erb" %>
     </div>
   </div>
 </div>
 <%= render "/partials/footer" %>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
